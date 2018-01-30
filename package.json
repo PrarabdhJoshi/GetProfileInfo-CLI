@@ -1,0 +1,15 @@
+{
+  "name": "gitinfo-cli",
+  "version": "1.0.0",
+  "description": "command-line application that fetches the list of public repositories for any Github user that is passed as an argument",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Prarabdh Joshi",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.13.0",
+    "inquirer": "^5.0.1"
+  }
+}
