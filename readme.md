@@ -27,10 +27,11 @@ gitinfo-cli [options]
 #### gitinfo-cli --version
 
 ### [3]. Get user's public Repositories
-gitinfo-cli user <username> <ordering-mode>
+#### gitinfo-cli user [username] [ordering-mode]
 
-#### Supported Ordering Modes-> use 'asc' for displaying results in Ascending Order
-####                         -> use 'dsc' for displaying results in Descending Order
+#### Supported Ordering Modes
+#### -> use 'asc' for displaying results in Ascending Order
+#### -> use 'dsc' for displaying results in Descending Order
 
 
 ##### eg. gitinfo-cli user AutoCustoms dsc
