@@ -26,7 +26,7 @@ gitinfo-cli [options]
 ### [2]. Version
 #### gitinfo-cli --version
 
-###[3]. Get user's public Repositories
+### [3]. Get user's public Repositories
 #### gitinfo-cli user <username> <ordering-mode>
 
 #### Supported Ordering Modes-> use 'asc' for displaying results in Ascending Order
