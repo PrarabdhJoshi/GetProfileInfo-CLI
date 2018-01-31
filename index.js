@@ -9,13 +9,13 @@ cli
     .version('1.0.0')
     .description('GitHub Info Collecter')
 
-//add commands 
+//add command to display user repositories. Give option asc or dsc for ordering
 cli
-    .command('user <username>')
+    .command('user <username> <order>')
     .alias('u')
     .description('get public repositories for a given user')
-    .action((username)=>{
-        fetch_data(username);
+    .action((username,order)=>{
+        fetch_data(username,order);
     });
 
 cli.parse(process.argv);
