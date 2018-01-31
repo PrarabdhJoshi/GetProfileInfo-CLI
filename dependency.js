@@ -7,7 +7,7 @@ var headers = {
 
 
 
-function get_data(username){
+var data = function get_data(username){
     request({
         url: 'https://api.github.com/users/'+username+'/repos',
         headers: headers
@@ -20,4 +20,4 @@ function get_data(username){
     
 }
 
-get_data('AutoCustoms');
+module.exports=data;
