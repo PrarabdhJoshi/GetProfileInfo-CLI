@@ -1,9 +1,10 @@
-var fetch_data = require('./dependency.js');
+#!/usr/bin/env node
+
 
 
 //get instance of the commander
 var cli = require('commander');
-
+var fetch_data = require('./dependency.js');
 //set the versioning for the app
 cli
     .version('1.0.0')
