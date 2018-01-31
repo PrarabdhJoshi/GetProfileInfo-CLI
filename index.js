@@ -14,7 +14,7 @@ cli
 cli
     .command('user <username> <order>')
     .alias('u')
-    .description('get public repositories for a given user')
+    .description('get public repositories for a given user and sort the result based on your desired ordering')
     .action((username,order)=>{
         fetch_data(username,order);
     });
