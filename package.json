@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "commander": "^2.13.0",
-    "inquirer": "^5.0.1"
+    "inquirer": "^5.0.1",
+    "request": "^2.83.0"
   }
 }
