@@ -8,10 +8,10 @@
 ### npm intall 
 
 ###### Run 
-### npm link
+### npm link [Make sure to use sudo for Linux subsystems]
 
 #### For Windows Users:
-Use GitBash to run the command as
+Use GitBash/cmd to run the command as
 gitinfo-cli [options]
 
 #### For Linux Users:
