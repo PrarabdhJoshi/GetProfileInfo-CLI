@@ -1,4 +1,4 @@
-var request = require('request');
+var request = require('request-promise');
 var Table = require('cli-table');
 var headers = {
     'User-Agent': 'PrarabdhJoshi'
@@ -41,30 +41,35 @@ function compare(a, b) {
   }
   
 
-var data = function get_data(username,order){
-    request({
-        url: 'https://api.github.com/users/'+username+'/repos',
-        headers: headers
-        }, (error, response, body)=>{
-        if (!error && response.statusCode == 200) {
-           
-            for(var i=0; i<JSON.parse(body).length; i++){
-                // console.log(JSON.parse(body)[i].name+"\t"+JSON.parse(body)[i].stargazers_count);
-                result.push({'Name':JSON.parse(body)[i].name,'stargazers_count':JSON.parse(body)[i].stargazers_count});
-            }
-            if(order==='dsc')
-                result.sort(rev_compare);
-            else
-                result.sort(compare);
-             for(var j=0; j<result.length; j++){
-                //sort the result
-                table.push([result[j].Name,result[j].stargazers_count]);
-                
-             }
-            console.log(table.toString());
-        }
-    });
-    
-}
+//push data across all pages using promises
 
+var data = function(username, order,page){
+    return request({
+    "method":"GET", 
+    "uri": "https://api.github.com/users/"+username+"/repos?per_page=10&page="+page,
+    "json": true,
+    "headers": headers
+  }).then(function(response) {
+    //console.log(response.length);
+    if(response.length>0){
+        for(var i=0; i<response.length; i++){
+            result.push({'Name':response[i].name,'stargazers_count':response[i].stargazers_count});
+        }
+        data(username,order, page+1);
+    }
+    else{
+        if(order==='dsc')
+            result.sort(rev_compare);
+        else
+            result.sort(compare);
+         for(var j=0; j<result.length; j++){
+            //sort the result
+            table.push([result[j].Name,result[j].stargazers_count]);
+            
+         }
+        console.log(table.toString());
+    }
+        
+  });
+}
 module.exports=data;

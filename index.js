@@ -16,7 +16,7 @@ cli
     .alias('u')
     .description('get public repositories for a given user and sort the result based on your desired ordering')
     .action((username,order)=>{
-        fetch_data(username,order);
+        fetch_data(username,order,1);
     });
 
 cli.parse(process.argv);
